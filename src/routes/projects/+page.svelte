@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { projects } from '$lib/data';
+	export let data;
+	console.log(data);
 </script>
 
 <div class="w-3/5 mx-auto text-center px-4">

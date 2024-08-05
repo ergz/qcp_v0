@@ -29,5 +29,11 @@ export let projects = [
 		}
 	];
 
+export function addProject(project_name: string, client: string, budget: string, start_date: string, end_date: string) {
+	const new_project = {name: project_name, client: client, budget: budget, start_date: start_date, end_date: end_date};
+
+	projects = [...projects, new_project];
+
+}
 
 

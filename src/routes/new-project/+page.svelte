@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Layout from '../+layout.svelte';
+	import { addProject } from '$lib/data';
 
 	let name: string = '';
 	let client_name: string = '';
@@ -10,7 +11,7 @@
 
 	function handleSubmit(event: Event) {
 		event.preventDefault();
-		console.log(name);
+		addProject(name, client_name, budget, start_date, end_date);
 	}
 
 	console.log('the value of name:', name);
