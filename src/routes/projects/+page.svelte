@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { projects } from '$lib/data';
+
 	export let data;
 	console.log(data);
 </script>
