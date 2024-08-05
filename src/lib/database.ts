@@ -1,6 +1,14 @@
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
 
+interface Project {
+	name: string;
+	client_id: number;
+	budget: number;
+	start_date: string,
+	end_date: string
+};
+
 let db: Database | null = null;
 
 export async function getDB() {
@@ -29,7 +37,7 @@ export async function getAllProjects() {
 	try {
 		console.log("trying to get the data");
 		const query = "SELECT * FROM projects;";
-		const results = await db.all(query);
+		const results: Project[] = await db.all(query);
 		return {
 			status: 200, 
 			body: {data: results}
@@ -42,5 +50,9 @@ export async function getAllProjects() {
 		
 	}
 
+
+}
+
+export async function addProject() {
 
 }
