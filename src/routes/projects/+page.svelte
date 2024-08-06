@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { projects } from '$lib/data';
-
 	export let data;
-	console.log(data);
+	console.log('the data is', data);
 </script>
 
 <div class="w-3/5 mx-auto text-center px-4">
@@ -27,7 +25,7 @@
 			<tbody>
 				<!-- row 1 -->
 
-				{#each projects as project}
+				{#each data.projects as project}
 					<tr>
 						<!-- <th> -->
 						<!-- 	<label> -->

@@ -1,4 +1,4 @@
-import {getAllProjects } from "$lib/database"
+import { getAllProjects } from "$lib/database"
 
 export async function load() {
     const allProjects = await getAllProjects();
