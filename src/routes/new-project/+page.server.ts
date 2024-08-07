@@ -1,5 +1,5 @@
 import {  addProject, type Project } from "$lib/database";
-import type { Actions } from "./$types";
+import { redirect, type Actions } from "@sveltejs/kit";
 
 export const actions: Actions = {
     default: async ({request}) => {
@@ -10,6 +10,11 @@ export const actions: Actions = {
         const budget = data.get("budget");
         const start_date = data.get("start_date");
         const end_date = data.get("end_date");
+
+        if (!name || !client_id || !budget || !start_date || !end_date) {
+            console.log("validation failed");
+            throw "something";
+        }
 
         const project_data: Project = {
             name: name.toString(),
@@ -24,7 +29,7 @@ export const actions: Actions = {
             addProject(project_data);
         } catch (error) {
             console.log("error trying to add project to database")
-            throw error;
+            console.log(error);
         }
     } 
 }

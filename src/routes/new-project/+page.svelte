@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
+	export let data;
 </script>
 
 <div class="w-3/5 mx-auto text-center px-4">
@@ -12,7 +12,7 @@
   4. the start date
   5. the end date
   -->
-	<form method="POST" class="mt-10 flex flex-col items-center space-y-4">
+	<form method="post" class="mt-10 flex flex-col items-center space-y-4">
 		<input
 			name="project_name"
 			type="text"
@@ -36,7 +36,7 @@
 			required
 		/>
 		<input
-			name="star_date"
+			name="start_date"
 			type="date"
 			placeholder="Start date"
 			class="input input-bordered w-full max-w-xs"
@@ -66,7 +66,7 @@
 		</div>
 
 		<div class="m-5">
-			<button class="btn btn-outline btn-success" type="submit">Add</button>
+			<button class="btn btn-outline btn-success">Add</button>
 		</div>
 	</form>
 </div>

@@ -1,6 +1,5 @@
 <script lang="ts">
 	export let data;
-	console.log('the data is', data);
 </script>
 
 <div class="w-3/5 mx-auto text-center px-4">
@@ -38,7 +37,14 @@
 						<td>{project.start_date}</td>
 						<td>{project.end_date}</td>
 						<th>
-							<a class="btn btn-outline btn-success btn-xs">Details</a>
+							<a href="/projects/{project.id}" class="btn btn-outline btn-success btn-xs">Details</a
+							>
+						</th>
+						<th>
+							<form method="POST">
+								<input name="project_name_to_delete" type="hidden" value={project.name} />
+								<button class="btn btn-outline btn-error btn-xs">DELETE</button>
+							</form>
 						</th>
 					</tr>
 				{/each}

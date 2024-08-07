@@ -3,6 +3,7 @@ import { open } from "sqlite";
 import type {Database} from "sqlite";
 
 export interface Project {
+	id: number;
 	name: string;
 	client_id: number;
 	budget: number;
@@ -61,8 +62,8 @@ export async function addProject(project: Project) {
 	console.log("in the add projects function");
 	const db: Database = await getDB();
 
-	const query = `INSERT INTO projects (name, budget, start_date, end_date) VALUES (?, ?, ?, ?)`;
-	const params = [project.name, project.budget, project.start_date, project.end_date];
+	const query = `INSERT INTO projects (name, client_id, budget, start_date, end_date) VALUES (?, ?, ?, ?, ?)`;
+	const params = [project.name, project.client_id, project.budget, project.start_date, project.end_date];
 
 	try {
 		await db.run(query, params);
@@ -71,3 +72,18 @@ export async function addProject(project: Project) {
 	}
 
 }
+
+
+export async function deleteProject(project_name: string) {
+	const db: Database = await getDB();
+	const query = `DELETE FROM projects where name = ?;`
+	const params = [project_name];
+	
+	try {
+		await db.run(query, params);	
+	} catch (error) {
+		console.log("error trying to delete the data");	
+	}
+}
+
+
